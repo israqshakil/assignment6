@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Plant a Tree</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+      <body class="bg-green-100 min-h-screen flex flex-col justify-between">
+        <!-- Form Section -->
+        <main class="flex-grow flex items-center justify-center">
+          <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <h1 class="text-2xl font-bold text-green-700 mb-6 text-center">
+              Plant a Tree Today
+            </h1>
+            <form class="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+              <input
+                type="email"
+                placeholder="Your Email Address"
+                class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+              <select
+                class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option disabled selected>Number of Trees</option>
+                <option>1</option>
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+              </select>
+              <button
+                type="submit"
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 rounded transition duration-200"
+              >
+                Donate Now
+              </button>
+            </form>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center text-sm text-green-800 py-4">
+          © 2023 Green Earth. All Rights Reserved.
+        </footer>
+      </body>
+    </html>
+  </body>
+</html>
