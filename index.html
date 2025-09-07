@@ -126,10 +126,49 @@
     </div>
 
     <!-- Plant A Tree Today Section -->
-    <div></div>
+    <div
+      class="form bg-green-900 py-[100px] flex-col flex items-center justify-center"
+    >
+      <h1 class="text-2xl font-bold text-white mb-6 text-center">
+        Plant a Tree Today
+      </h1>
+      <form
+        class="space-y-4 lg:w-[650px] w-[300px] bg-green-600 flex-col flex items-center pt-6 rounded-2xl"
+      >
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="lg:w-[500px] w-[250px] px-4 py-2 border bg-white rounded"
+        />
+        <input
+          type="email"
+          placeholder="Your Email Address"
+          class="lg:w-[500px] w-[250px] px-4 py-2 border bg-white rounded"
+        />
+        <select
+          class="lg:w-[500px] w-[250px] px-4 py-2 border bg-white rounded"
+        >
+          <option disabled selected>Number of Trees</option>
+          <option>1</option>
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+        </select>
+        <button
+          type="submit"
+          class="btn btn-warning lg:rounded-2xl rounded-4xl text-green-600 lg:w-[500px] w-[250px] mb-4"
+        >
+          Donate Now
+        </button>
+      </form>
+    </div>
 
     <!-- Footer Section -->
-    <footer></footer>
+    <footer class="bg-green-950">
+      <p class="text-center text-white py-3">
+        © 2025 Green Earth. All Rights Reserved.
+      </p>
+    </footer>
 
     <script src="index.js"></script>
   </body>
