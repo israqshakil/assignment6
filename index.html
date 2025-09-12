@@ -22,8 +22,6 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Tailwind CSS CDN
-    <script src="https://cdn.tailwindcss.com"></script> -->
 
     <!-- font awesome cdn -->
     <link
@@ -33,16 +31,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- <style>
-      
-      .active-cat {
-        background-color: #16a34a;
-        color: #fff;
-      }
-      .no-scroll {
-        overflow: hidden;
-      }
-    </style> -->
   </head>
   <body>
     <!-- Navigation Section -->
@@ -50,7 +38,7 @@
       class="nav bg-green-700 flex justify-between items-center lg:px-32 px-2 text-white"
     >
       <div>
-        <h1 class="text-xl">Green Earth</h1>
+        <h1 class="text-xl">🌴 Green Earth</h1>
       </div>
       <div>
         <ul class="lg:flex lg:gap-5 gap-2">
@@ -92,119 +80,86 @@
       </div>
     </div>
 
-    <!-- Choose Your Trees Section -->
+    <!-- Spinner -->
 
-    <!-- Shop Section -->
-
-    <!-- Shop Section -->
-    <section id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-center text-2xl sm:text-3xl font-bold">
-        Choose Your Trees
-      </h2>
-
-      <div
-        class="mt-8 grid grid-cols-1 lg:grid-cols-[250px_minmax(0,1fr)_320px] gap-6"
-      >
-        <!-- Categories -->
-        <aside>
-          <div
-            class="bg-white rounded-2xl border border-green-100 p-4 sticky top-20"
-          >
-            <h3 class="font-semibold mb-3">Categories</h3>
-            <div id="categories" class="grid gap-2">
-              <!-- dynamic -->
-            </div>
-          </div>
-        </aside>
-
-        <!-- Product Grid -->
-        <div>
-          <div
-            id="plant-grid"
-            class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[200px]"
-          >
-            <!-- dynamic cards -->
-          </div>
-          <!-- Spinner -->
-          <div id="grid-spinner" class="hidden py-10">
-            <div class="flex items-center justify-center gap-3 text-green-700">
-              <svg class="animate-spin h-6 w-6" viewBox="0 0 24 24">
-                <circle
-                  class="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="4"
-                ></circle>
-                <path
-                  class="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                ></path>
-              </svg>
-              <span class="font-medium">Loading plants…</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cart -->
-        <aside class="lg:block">
-          <div
-            class="bg-white rounded-2xl border border-green-100 p-4 sticky top-20"
-          >
-            <div class="flex items-center justify-between">
-              <h3 class="font-semibold">Your Cart</h3>
-              <button
-                id="clear-cart"
-                class="text-xs text-red-600 hover:underline"
-              >
-                Clear
-              </button>
-            </div>
-            <ul id="cart-list" class="mt-3 space-y-2 text-sm">
-              <!-- dynamic cart items -->
-            </ul>
-            <div
-              class="mt-4 border-t pt-3 flex items-center justify-between font-semibold"
-            >
-              <span>Total</span>
-              <span id="cart-total">$0.00</span>
-            </div>
-          </div>
-        </aside>
-      </div>
+    <section
+      id="spinner"
+      class="flex justify-center items-center h-[150px] hidden"
+    >
+      <span class="loading loading-dots loading-lg"></span>
     </section>
 
-    <!-- About the Campaign Section -->
-    <div class="about-campaign my-8 lg:px-[150px] mx-4">
-      <div>
-        <h1 class="font-semibold lg:text-3xl text-xl text-center mb-5">
-          About the Campaign
+    <main class="bg-green-50">
+      <!-- Choose Your Trees Section -->
+
+      <div class="lg:px-20">
+        <h1 class="text-center font-[700] text-[30px] py-[30px]">
+          Choose Your Trees
         </h1>
+        <div
+          class="max-w-[1430px] main-container grid grid-cols-12 mx-auto gap-4 max-md:flex max-md:flex-col"
+        >
+          <!-- Categories -->
+          <div class="col-span-2 space-y-4">
+            <h1 class="font-bold text-2xl">Categories</h1>
+            <div id="all-categories" class="list-none space-y-4"></div>
+          </div>
+
+          <!-- Plant Cards -->
+          <div id="main-card-container" class="col-span-8">
+            <div
+              id="all-plants"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-sm:flex max-sm:justify-center max-md:flex-col max-sm:w-full max-sm:items-center max-sm:p-3"
+            ></div>
+          </div>
+
+          <!-- Cart -->
+          <div class="col-span-2 rounded-lg bg-white p-4">
+            <h1 class="font-[600] text-[20px]">Your Cart</h1>
+            <div id="add-to-cart-main-section"></div>
+            <div class="flex justify-between mt-[10px] text-[18px]">
+              <h1>Total:</h1>
+              <p>$<span id="cart-total-price">0</span></p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 items-center">
-        <div
-          class="drop-shadow-[0_6px_12px_rgba(0,0,0,0.25)] bg-orange-200 rounded-lg w-full"
-        >
-          <img src="./assets/about.png" alt="" />
+      <!-- Plant Details Modal -->
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div id="details-container" class="modal-box space-y-3"></div>
+      </dialog>
+
+      <!-- About the Campaign Section -->
+      <div class="about-campaign lg:px-[150px] mx-4 py-14">
+        <div>
+          <h1 class="font-semibold lg:text-3xl text-xl text-center mb-5">
+            About the Campaign
+          </h1>
         </div>
-        <div class="flex flex-col justify-between items-center">
-          <p class="text-gray-600 lg:leading-relaxed">
-            Green Earth is a global tree plantation initiative dedicated to
-            fighting climate change. Since our start, we’ve planted over 500,000
-            trees worldwide. By joining our campaign, you help restore forests,
-            create habitats for wildlife, and combat global warming.
-          </p>
-          <ul class="px-3 list-disc list-inside text-gray-600 mt-5">
-            <li>Restoration of natural habitats</li>
-            <li>Improvement of air quality</li>
-            <li>Support for local communities</li>
-          </ul>
+
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 items-center">
+          <div
+            class="drop-shadow-[0_6px_12px_rgba(0,0,0,0.25)] bg-orange-200 rounded-lg w-full"
+          >
+            <img src="./assets/about.png" alt="" />
+          </div>
+          <div class="flex flex-col justify-between items-center">
+            <p class="text-gray-600 lg:leading-relaxed">
+              Green Earth is a global tree plantation initiative dedicated to
+              fighting climate change. Since our start, we’ve planted over
+              500,000 trees worldwide. By joining our campaign, you help restore
+              forests, create habitats for wildlife, and combat global warming.
+            </p>
+            <ul class="px-3 list-disc list-inside text-gray-600 mt-5">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- Our Impact Section -->
     <div class="our-impact bg-[#CFF0DC] py-10 lg:px-32">
@@ -269,23 +224,6 @@
         © 2025 Green Earth. All Rights Reserved.
       </p>
     </footer>
-    <!-- Modal -->
-    <div id="modal" class="hidden fixed inset-0 z-50">
-      <div class="absolute inset-0 bg-black/50" data-close="true"></div>
-      <div
-        class="relative max-w-2xl mx-auto mt-16 bg-white rounded-2xl shadow-xl overflow-hidden"
-      >
-        <div class="flex justify-between items-center px-6 py-4 border-b">
-          <h3 id="modal-title" class="font-semibold text-lg">Plant details</h3>
-          <button class="p-2 rounded hover:bg-slate-100" data-close="true">
-            ✕
-          </button>
-        </div>
-        <div id="modal-body" class="p-6 grid md:grid-cols-2 gap-6">
-          <!-- dynamic -->
-        </div>
-      </div>
-    </div>
 
     <script src="app.js"></script>
   </body>
