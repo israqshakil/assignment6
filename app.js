@@ -13,9 +13,23 @@ const loadCategories = async () => {
     categories.forEach((category) => {
       const li = document.createElement("li");
       li.className =
-        "h-[35px] add-hover-effect hover:bg-[#15803d] hover:text-white flex items-center p-2 cursor-pointer rounded-lg";
+        "h-[35px] flex items-center p-2 cursor-pointer rounded-lg hover:bg-[#15803d] hover:text-white transition";
       li.innerText = category.category_name;
-      li.onclick = () => loadByCategory(category.id);
+      li.id = `cat-${category.id}`;
+
+      li.addEventListener("click", () => {
+        // remove active state
+        document.querySelectorAll("#all-categories li").forEach((el) => {
+          el.classList.remove("bg-[#15803d]", "text-white");
+        });
+
+        // add active state
+        li.classList.add("bg-[#15803d]", "text-white");
+
+        // load plants
+        loadByCategory(category.id);
+      });
+
       allCategories.appendChild(li);
     });
   } catch (err) {
@@ -153,18 +167,29 @@ const renderCart = () => {
   cartContainer.innerHTML = "";
   let total = 0;
 
-  cart.forEach((item) => {
+  cart.forEach((item, index) => {
     total += item.price;
     const div = document.createElement("div");
-    div.className = "flex justify-between items-center border-b py-2";
+    div.className =
+      "flex justify-between items-center rounded-lg p-2 bg-[#f0fdf4] mt-[10px]";
     div.innerHTML = `
-      <p>${item.name}</p>
-      <p>$${item.price}</p>
+      <div>
+        <h1 class="font-[600]">${item.name}</h1>
+        <p>$<span>${item.price}</span></p>
+      </div>
+      <div>
+        <button onclick="removeFromCart(${index})" 
+                class="remove-btn cursor-pointer">❌</button>
+      </div>
     `;
     cartContainer.appendChild(div);
   });
 
   totalPrice.innerText = total;
+};
+const removeFromCart = (index) => {
+  cart.splice(index, 1); // remove the item at this index
+  renderCart(); // re-render cart
 };
 
 // Initial Calls
